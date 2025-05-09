@@ -1,0 +1,5 @@
+No saved model files were included for this project.
+
+The Isolation Forest model was trained dynamically within the Colab notebook during runtime. Due to its low complexity and fast training time, there was no need to export a serialized .pkl or .joblib file for reuse.
+
+This folder is reserved for future use if model persistence becomes necessary (e.g., deployment via API or edge device).
