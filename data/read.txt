@@ -1,0 +1,8 @@
+This project uses the Credit Card Fraud Detection dataset from Kaggle.
+
+Dataset Source:
+https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
+
+The dataset contains 284,807 credit card transactions with 30 anonymized features (V1–V28), as well as 'Time' and 'Amount' columns. Due to size restrictions, this CSV is not included directly in the repository.
+
+Please download the dataset manually from the link above if local testing is required.
