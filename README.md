@@ -1,10 +1,10 @@
 # AIM240-Capstone-Anomaly-Detection
-My AIM240 Capstone: Unsupervised credit card fraud detection using Isolation Forest with GitHub-Colab deployment workflow.
+My AIM240 Capstone: Credit card fraud detection using Isolation Forest (unsupervised) and LightGBM (supervised benchmark), deployed via a GitHub–Colab workflow.
 # AIM240 Capstone Project — Anomaly Detection in Credit Card Fraud
 
 ## Project Overview
 AIM240 Capstone Project — Anomaly Detection in Credit Card Fraud
-This project continues the anomaly detection theme developed during AIM230. It applies unsupervised machine learning to detect fraudulent transactions in a credit card dataset using Isolation Forest, with LightGBM used as a comparison benchmark. The goal is to build a lightweight, explainable, and deployable anomaly detection pipeline suitable for integration into edge environments or GitHub-hosted Colab workflows.
+This project continues the anomaly detection theme developed during AIM230. It applies unsupervised machine learning to detect fraudulent transactions in a credit card dataset using Isolation Forest, with LightGBM used as a supervised comparison benchmark. The goal is to build a lightweight, explainable, and deployable anomaly detection pipeline suitable for integration into edge environments or GitHub-hosted Colab workflows.
 
 ## Dataset 
 - Source: Kaggle Credit Card Fraud Detection Dataset
@@ -32,11 +32,11 @@ Or open the notebook using Google Colab by uploading the .ipynb file located in 
 
 ## Project Structure
 - /data — Contains the creditcard.csv dataset
-- /notebooks — Jupyter or Colab notebooks with model pipeline code
+- /notebooks — Jupyter or Colab notebooks with model pipeline code used for model training and evaluation
 - /models — Trained model files (if saved)
 - /outputs — Evaluation results, graphs, and confusion matrices
 - /diagrams — Pipeline diagrams or model visualizations
-- /docs — Final PDF deliverables and proposal
+- /docs — Final PDF deliverables and Capstone report
 
 ## Requirements
 - Python 3.8+
@@ -48,7 +48,26 @@ Or open the notebook using Google Colab by uploading the .ipynb file located in 
 - These libraries are listed in the requirements.txt file and can be installed in one step.
 
 ## Results Summary
-This project successfully used Isolation Forest to detect fraudulent credit card transactions without relying on labeled data. Simulated profiling showed the model’s memory usage at ~253MB, with quantization reducing usage by 40% and improving inference latency by approximately 20%. Visualizations and confusion matrices confirmed the model’s ability to generalize well in low-resource environments. Results were shared using Google Colab and made reproducible through GitHub.
+This project successfully used Isolation Forest to detect fraudulent credit card transactions without relying on labeled data. It also implemented LightGBM as a supervised benchmark to compare results.
+
+Final metrics:
+- Isolation Forest F1-score (fraud): 0.3365
+- LightGBM F1-score (fraud): 0.8634
+- Inference time (batch size 128): ~8ms
+- Memory usage after cleanup: ~690.65 MB
+
+Visualizations and confusion matrices confirmed each model’s performance. 
+
+## Memory Profiling
+Memory usage was measured using the `psutil` library to assess the resource footprint of the Isolation Forest model during execution.
+
+Due to the nature of Jupyter/Colab environments, memory usage may incrementally increase with repeated cell executions. This is caused by retained object references and memory that is not automatically released between runs. To obtain a reproducible measurement, a fresh runtime was used before this profiling step.
+
+The reported usage was approximately 690.65 MB of RAM, confirming suitability for deployment on modern laptops, edge devices, or lightweight cloud containers (i.e., systems with moderate memory constraints). The output below reflects the model’s memory usage immediately after reinitialization.
+
+NOTE: Cleanup commands such as `gc.collect()`, `plt.close('all')`, and `del` statements can be used in development environments to manage memory manually and improve consistency between runs.
+
+The full pipeline runs in Google Colab and is shared through GitHub.
 
 ## Author
 Edward Smith
