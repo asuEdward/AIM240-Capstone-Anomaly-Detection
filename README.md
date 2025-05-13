@@ -69,6 +69,17 @@ NOTE: Cleanup commands such as `gc.collect()`, `plt.close('all')`, and `del` sta
 
 The full pipeline runs in Google Colab and is shared through GitHub.
 
+## Output Visualizations
+
+### Isolation Forest — Confusion Matrix
+![Isolation Forest Confusion Matrix](outputs/Isolation_Forest_Confusion_Matrix.png)
+
+### LightGBM — Confusion Matrix
+![LightGBM Confusion Matrix](outputs/LightGBM_Confusion_Matrix.png)
+
+### Inference Profiling — Isolation Forest
+![Inference Profiling](outputs/Inference_Profiling_Isolation_Forest.png)
+
 ## Author
 Edward Smith
 AIM240 — Artificial Intelligence Capstone Project
